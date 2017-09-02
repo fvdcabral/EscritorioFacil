@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule} from '@angular/forms';
 
 import { EstadoFormComponent } from  './estado-form.component';
 import { EstadosListaComponent } from  './estados-lista.component';
 import { EstadoRoutingModule } from './estado-routing.module';
 
+
+import { EstadoService } from './estado.service';
+
 @NgModule({
     imports:[
         CommonModule,
-        EstadoRoutingModule
+        EstadoRoutingModule,
+        FormsModule
     ],
     declarations: [
         EstadosListaComponent,
@@ -17,6 +22,9 @@ import { EstadoRoutingModule } from './estado-routing.module';
 
     exports:[
         EstadosListaComponent
+    ],
+    providers: [
+        EstadoService
     ]
 })
 

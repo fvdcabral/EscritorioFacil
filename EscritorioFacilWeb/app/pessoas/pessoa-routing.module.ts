@@ -20,7 +20,8 @@ const pessoaRoutes: Routes= [
 @NgModule({
     imports:[
         RouterModule.forChild(pessoaRoutes)
-    ]
+    ],
+    exports: [ RouterModule]
 
 })
 export class PessoaRoutingModule{}

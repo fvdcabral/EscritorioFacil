@@ -11,11 +11,15 @@ const estados_lista_component_1 = require("./estados-lista.component");
 const estado_form_component_1 = require("./estado-form.component");
 const estadoRoutes = [
     {
-        path: 'estado',
+        path: 'estados',
         component: estados_lista_component_1.EstadosListaComponent
     },
     {
-        path: 'estado/save',
+        path: 'estado/form',
+        component: estado_form_component_1.EstadoFormComponent
+    },
+    {
+        path: 'estado/form/:id',
         component: estado_form_component_1.EstadoFormComponent
     }
 ];
@@ -25,7 +29,8 @@ EstadoRoutingModule = __decorate([
     core_1.NgModule({
         imports: [
             router_1.RouterModule.forChild(estadoRoutes)
-        ]
+        ],
+        exports: [router_1.RouterModule]
     })
 ], EstadoRoutingModule);
 exports.EstadoRoutingModule = EstadoRoutingModule;

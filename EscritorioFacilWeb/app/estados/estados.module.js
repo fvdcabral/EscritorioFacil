@@ -7,16 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 const core_1 = require("@angular/core");
 const common_1 = require("@angular/common");
+const forms_1 = require("@angular/forms");
 const estado_form_component_1 = require("./estado-form.component");
 const estados_lista_component_1 = require("./estados-lista.component");
 const estado_routing_module_1 = require("./estado-routing.module");
+const estado_service_1 = require("./estado.service");
 let EstadosModule = class EstadosModule {
 };
 EstadosModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
-            estado_routing_module_1.EstadoRoutingModule
+            estado_routing_module_1.EstadoRoutingModule,
+            forms_1.FormsModule
         ],
         declarations: [
             estados_lista_component_1.EstadosListaComponent,
@@ -24,6 +27,9 @@ EstadosModule = __decorate([
         ],
         exports: [
             estados_lista_component_1.EstadosListaComponent
+        ],
+        providers: [
+            estado_service_1.EstadoService
         ]
     })
 ], EstadosModule);

@@ -7,20 +7,25 @@ import { EstadoFormComponent } from './estado-form.component';
 
 const estadoRoutes: Routes= [
    { 
-       path:'estado',
+       path:'estados',
        component:EstadosListaComponent
    },
    {
-       path:'estado/save',
+       path:'estado/form',
        component:EstadoFormComponent
-   }
+   },
+   {
+        path:'estado/form/:id',
+        component:EstadoFormComponent
+    }
 ]
 
 
 @NgModule({
     imports:[
         RouterModule.forChild(estadoRoutes)
-    ]
+    ],
+    exports: [ RouterModule]
 
 })
 export class EstadoRoutingModule{}

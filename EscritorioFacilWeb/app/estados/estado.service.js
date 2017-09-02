@@ -6,14 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 const core_1 = require("@angular/core");
-let AppComponent = class AppComponent {
+const estados_mock_1 = require("./estados-mock");
+let EstadoService = class EstadoService {
+    getEstados() {
+        return Promise.resolve(estados_mock_1.ESTADOS);
+    }
+    getEstado(id) {
+        return this.getEstados()
+            .then((estados) => estados.find(estado => estado.id === id));
+    }
 };
-AppComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'my-app',
-        templateUrl: 'app.component.html'
-    })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+EstadoService = __decorate([
+    core_1.Injectable()
+], EstadoService);
+exports.EstadoService = EstadoService;
+//# sourceMappingURL=estado.service.js.map

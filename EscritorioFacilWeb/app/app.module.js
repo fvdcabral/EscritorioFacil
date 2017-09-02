@@ -7,6 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
+const http_1 = require("@angular/http");
+const angular_in_memory_web_api_1 = require("angular-in-memory-web-api");
+const in_memory_data_service_1 = require("./in-memory-data.service");
 const app_component_1 = require("./app.component");
 const pessoas_module_1 = require("./pessoas/pessoas.module");
 const estados_module_1 = require("./estados/estados.module");
@@ -18,6 +21,8 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             app_routing_module_1.AppRoutingModule,
+            http_1.HttpModule,
+            angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
             pessoas_module_1.PessoasModule,
             estados_module_1.EstadosModule,
         ],

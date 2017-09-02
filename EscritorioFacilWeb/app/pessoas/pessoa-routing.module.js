@@ -25,7 +25,8 @@ PessoaRoutingModule = __decorate([
     core_1.NgModule({
         imports: [
             router_1.RouterModule.forChild(pessoaRoutes)
-        ]
+        ],
+        exports: [router_1.RouterModule]
     })
 ], PessoaRoutingModule);
 exports.PessoaRoutingModule = PessoaRoutingModule;

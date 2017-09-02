@@ -1,6 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Estado } from './estado.model';
-import { ESTADOS } from './estados-mock';
+import { EstadoService } from './estado.service';
 
 @Component({
     moduleId: module.id,
@@ -8,7 +8,19 @@ import { ESTADOS } from './estados-mock';
     templateUrl:'estados-lista.component.html'
 })
 
-export class EstadosListaComponent{
+export class EstadosListaComponent implements OnInit{
 
-    estados:Estado[] = ESTADOS;
+    estados:Estado[];
+
+    constructor(private estadoService: EstadoService){  }
+
+    ngOnInit():void {
+        
+
+        this.estadoService.getEstados()
+        .then((estados: Estado[]) => {
+                this.estados = estados;
+        }).catch(err => console.log(err));
+
+    }
 }
