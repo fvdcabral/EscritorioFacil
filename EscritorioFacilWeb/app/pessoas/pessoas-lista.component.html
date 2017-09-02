@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <h1>Advogados</h1>
+            
+            <table class="table table-striped table-hover"> 
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>OAB</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of advogados">
+                        <td>{{ c.id }}</td>
+                        <td>
+                            {{ c.nome }}
+                        </td>
+                        <td>{{ c.email }}</td>
+                        <td>{{ c.telefone }}</td>
+                        <td>{{ c.oab }}</td>
+                        <td>
+                            <button class="btn btn-danger"> Deletar</button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
