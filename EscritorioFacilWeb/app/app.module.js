@@ -15,6 +15,7 @@ const pessoas_module_1 = require("./pessoas/pessoas.module");
 const estados_module_1 = require("./estados/estados.module");
 const app_routing_module_1 = require("./app-routing.module");
 const cidades_module_1 = require("./cidades/cidades.module");
+const dialog_service_1 = require("./dialog.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -29,6 +30,9 @@ AppModule = __decorate([
             cidades_module_1.CidadesModule
         ],
         declarations: [app_component_1.AppComponent],
+        providers: [
+            dialog_service_1.DialogService
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

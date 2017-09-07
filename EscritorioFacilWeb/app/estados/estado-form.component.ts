@@ -50,13 +50,16 @@ constructor(
     }
 
     onSubmit():void {
-        
-        if(this.isNew){
+        let promise;
 
+        if(this.isNew){
+            promise = this.estadoService.create(this.estado);
         }
         else{
-            
+            promise = this.estadoService.update(this.estado);
         }
+
+        promise.then(estado => this.location.back());
 
     }
 }

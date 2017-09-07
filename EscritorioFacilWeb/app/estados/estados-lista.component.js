@@ -10,15 +10,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require("@angular/core");
 const estado_service_1 = require("./estado.service");
+const dialog_service_1 = require("./../dialog.service");
 let EstadosListaComponent = class EstadosListaComponent {
-    constructor(estadoService) {
+    constructor(estadoService, dialogService) {
         this.estadoService = estadoService;
+        this.dialogService = dialogService;
     }
     ngOnInit() {
         this.estadoService.getEstados()
             .then((estados) => {
             this.estados = estados;
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            console.log(err);
+            this.mostrarMensagem({
+                tipo: 'danger',
+                texto: 'Ocorreu um erro ao carregar os estados!'
+            });
+        });
+    }
+    onDelete(estado) {
+        this.dialogService.confirm("Deseja deletar o item informado?")
+            .then((canDelete) => {
+            if (canDelete) {
+                this.estadoService.delete(estado)
+                    .then(() => {
+                    this.estados = this.estados.filter((c) => c.id != estado.id);
+                    this.mostrarMensagem({
+                        tipo: 'success',
+                        texto: 'Estado deletado!'
+                    });
+                }).catch(err => {
+                    console.log(err);
+                    this.mostrarMensagem({
+                        tipo: 'danger',
+                        texto: 'Ocorreu um erro ao deletar o estado!'
+                    });
+                });
+            }
+        });
+    }
+    mostrarMensagem(mensagem) {
+        this.mensagem = mensagem;
+        this.montarClasses(mensagem.tipo);
+        if (mensagem.tipo != 'danger') {
+            setTimeout(() => {
+                this.mensagem = undefined;
+            }, 3000);
+        }
+    }
+    montarClasses(tipo) {
+        this.classesCss = {
+            'alert': true
+        };
+        this.classesCss['alert-' + tipo] = true;
     }
 };
 EstadosListaComponent = __decorate([
@@ -27,7 +71,8 @@ EstadosListaComponent = __decorate([
         selector: 'estados-lista',
         templateUrl: 'estados-lista.component.html'
     }),
-    __metadata("design:paramtypes", [estado_service_1.EstadoService])
+    __metadata("design:paramtypes", [estado_service_1.EstadoService,
+        dialog_service_1.DialogService])
 ], EstadosListaComponent);
 exports.EstadosListaComponent = EstadosListaComponent;
 //# sourceMappingURL=estados-lista.component.js.map

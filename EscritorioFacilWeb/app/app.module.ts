@@ -10,6 +10,7 @@ import { PessoasModule} from './pessoas/pessoas.module';
 import { EstadosModule} from './estados/estados.module';
 import { AppRoutingModule} from './app-routing.module';
 import { CidadesModule } from "./cidades/cidades.module";
+import { DialogService } from './dialog.service';
 
 @NgModule({
     imports:[
@@ -23,6 +24,9 @@ import { CidadesModule } from "./cidades/cidades.module";
         CidadesModule
     ],
     declarations:[AppComponent],
+    providers: [
+        DialogService
+    ],
     bootstrap: [AppComponent]
 })
 
