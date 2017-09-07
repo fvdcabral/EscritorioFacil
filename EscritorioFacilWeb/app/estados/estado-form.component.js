@@ -41,10 +41,14 @@ let EstadoFormComponent = class EstadoFormComponent {
         };
     }
     onSubmit() {
+        let promise;
         if (this.isNew) {
+            promise = this.estadoService.create(this.estado);
         }
         else {
+            promise = this.estadoService.update(this.estado);
         }
+        promise.then(estado => this.location.back());
     }
 };
 EstadoFormComponent = __decorate([

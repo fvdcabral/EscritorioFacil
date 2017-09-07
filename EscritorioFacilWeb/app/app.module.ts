@@ -9,6 +9,7 @@ import { AppComponent} from './app.component';
 import { PessoasModule} from './pessoas/pessoas.module';
 import { EstadosModule} from './estados/estados.module';
 import { AppRoutingModule} from './app-routing.module';
+import { DialogService } from './dialog.service';
 
 @NgModule({
     imports:[
@@ -21,6 +22,9 @@ import { AppRoutingModule} from './app-routing.module';
         EstadosModule,
     ],
     declarations:[AppComponent],
+    providers: [
+        DialogService
+    ],
     bootstrap: [AppComponent]
 })
 
