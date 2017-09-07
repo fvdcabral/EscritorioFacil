@@ -1,0 +1,28 @@
+
+<div class="container">
+    <h2>Cidade</h2>
+
+    <form (ngSubmit)="onSubmit()" #cidadeForm="ngForm" novalidate>
+        <div class="form-group">
+            <label for="nome" class="form-control-label">Nome</label>
+            <input type="text" class="form-control" name="nome"  required
+            [(ngModel)]="cidade.nome"  
+            [ngClass]="getFormControlClass(nome.valid,nome.pristine)"
+            #nome="ngModel">
+            <div class="invalid-feedback" [hidden]="nome.valid || nome.pristine">O campo é obrigatório!</div>
+        </div>
+
+        <div class="form-group">
+            <label for="uf">Estado</label>
+            <input type="estado" class="form-control" name="estado" required
+            [(ngModel)]="cidade.estado"  
+            [ngClass]="getFormControlClass(uf.valid,uf.pristine)"
+            #uf="ngModel">
+            <div class="invalid-feedback" [hidden]="uf.valid || uf.pristine">O campo é obrigatório!</div>
+        </div>
+        
+        <button type="submit" class="btn btn-success" [disabled]="!cidadeForm.form.valid">Salvar</button>
+        <a class="btn btn-secondary" routerLink="/">Voltar</a>
+    </form>
+
+</div>

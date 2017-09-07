@@ -14,6 +14,7 @@ const app_component_1 = require("./app.component");
 const pessoas_module_1 = require("./pessoas/pessoas.module");
 const estados_module_1 = require("./estados/estados.module");
 const app_routing_module_1 = require("./app-routing.module");
+const cidades_module_1 = require("./cidades/cidades.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -25,6 +26,7 @@ AppModule = __decorate([
             angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
             pessoas_module_1.PessoasModule,
             estados_module_1.EstadosModule,
+            cidades_module_1.CidadesModule
         ],
         declarations: [app_component_1.AppComponent],
         bootstrap: [app_component_1.AppComponent]
