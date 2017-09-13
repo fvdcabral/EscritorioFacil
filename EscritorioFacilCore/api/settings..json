@@ -1,0 +1,13 @@
+{
+    " name " : " escritorioFacioCore " ,
+    " type " : " python " ,
+    " request " : " launch " ,
+    " stopOnEntry " : true ,
+    " program " : " $ {file} " ,
+    "python.pythonPath": "${env.PYTHONPATH}/venv/bin/python",
+    "debugOptions ": [
+        " WaitOnAbnormalExit " ,
+        " WaitOnNormalExit " ,
+        " RedirectOutput "
+   ]
+}
