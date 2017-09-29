@@ -14,13 +14,17 @@ require("rxjs/add/operator/toPromise");
 let EstadoService = class EstadoService {
     constructor(http) {
         this.http = http;
-        this.estadosUrl = 'app/estados';
+        //private estadosUrl:string = 'app/estados';
+        this.estadosUrl = 'localhost:8080/api/estado';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+    }
+    convertObject(result) {
+        return result.objects;
     }
     getEstados() {
         return this.http.get(this.estadosUrl)
             .toPromise()
-            .then(response => response.json().data)
+            .then(response => this.convertObject(response.json().data))
             .catch(this.handleError);
     }
     create(estado) {

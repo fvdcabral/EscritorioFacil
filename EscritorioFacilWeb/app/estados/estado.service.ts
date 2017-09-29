@@ -1,21 +1,28 @@
 import { Injectable } from '@angular/core';
 import { ESTADOS } from './estados-mock';
 import { Estado } from './estado.model';
+import { Result } from './result.model';
 import { Http, Headers, Response} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class EstadoService{
 
-    private estadosUrl:string = 'app/estados';
+    //private estadosUrl:string = 'app/estados';
+    private estadosUrl:string = 'localhost:8080/api/estado';
     private headers: Headers = new Headers({'Content-Type':'application/json'});
     constructor(
         private http: Http
     ){}
+
+    convertObject(result:any):Estado[]{
+        return result.objects;
+    }
+    
     getEstados(): Promise<Estado[]> {
         return this.http.get(this.estadosUrl)
             .toPromise()
-            .then(response => response.json().data as Estado[])
+            .then(response => this.convertObject(response.json().data))
             .catch(this.handleError);
     }
 

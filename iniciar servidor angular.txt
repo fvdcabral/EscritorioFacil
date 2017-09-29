@@ -1,0 +1,4 @@
+roda o angular
+
+//na pasta do projeto angular
+$ npm start

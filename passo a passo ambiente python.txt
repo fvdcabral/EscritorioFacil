@@ -1,0 +1,17 @@
+Python escritoriofacil
+
+$ conda env list
+$ conda --name "nome do ambiente" python3.6
+
+$ activate "nome do ambiente"
+
+$ pip install --upgrade pip wheel setuptools
+
+$ pip install docutils pygments pypiwin32 
+$ pip install kivy.deps.sdl2
+$ pip install kivy.deps.glew
+$ pip install kivy.deps.gstreamer
+$ pip install kivy
+
+
+$ python run.py
